@@ -1,3 +1,6 @@
-import falaOi from './app';
+import app from './app';
 
-falaOi();
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Executando na porta ${port}`);
+});
