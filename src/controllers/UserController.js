@@ -15,7 +15,9 @@ class UserController {
   // TODO Index
   async index(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
+      // console.log('User ID ', req.userId);
+      // console.log('User EMAIL ', req.userEmail);
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -25,9 +27,9 @@ class UserController {
   // TODO Show
   async show(req, res) {
     try {
-      const { id } = req.params;
-      const user = await User.findByPk(id);
-      return res.json(user);
+      const user = await User.findByPk(req.params.id);
+      const { id, nome, email } = user;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.json(null);
     }
