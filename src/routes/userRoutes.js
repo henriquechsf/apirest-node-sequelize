@@ -6,8 +6,8 @@ import loginRequired from '../middlewares/loginRequired';
 const router = new Router();
 
 // não deveria existir por performance e segurança
-router.get('/', userController.index);
-router.get('/:id', userController.show);
+// router.get('/', userController.index);
+// router.get('/:id', userController.show);
 
 // usado somente em painel adm
 // router.put('/:id', userController.update);
